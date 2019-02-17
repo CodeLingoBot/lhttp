@@ -132,7 +132,7 @@ func (req *WsHandler) GetHeader(hkey string) string {
 	}
 }
 
-//if header already exist,update it
+// AddHeader: if header already exist,update it
 func (req *WsHandler) AddHeader(hkey, hvalue string) {
 	req.resp.headers = make(map[string]string, headerMax)
 	req.resp.headers[hkey] = hvalue
@@ -155,7 +155,7 @@ func (req *WsHandler) setResponse() {
 	}
 }
 
-//if you want change command or header ,using SetCommand or AddHeader
+// Send: if you want change command or header ,using SetCommand or AddHeader
 func (req *WsHandler) Send(body string) {
 	resp := protocolNameWithVersion + " "
 	if req.resp.command != "" {
